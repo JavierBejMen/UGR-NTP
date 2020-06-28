@@ -41,4 +41,22 @@ class ListaTest extends FunSuite {
   test("eliminar"){
     assert(Lista.eliminar(Lista(1,2,3,4,5,6,7,8), 7) == Lista(8))
   }
+
+  test("eliminarMientras"){
+    assert(Lista.eliminarMientras(Lista(1,2,3,4,5), (x: Int) => x < 5) == Lista(5))
+  }
+
+  test("eliminarUltimo"){
+    assert(Lista.eliminarUltimo(Lista(1,2,3,4,5,6)) == Lista(1,2,3,4,5))
+  }
+
+  test("foldLeft"){
+    assert(Lista.foldLeft[Int, Double](Lista(2,2,2,2), 1)((x, y) => x*y) == 16)
+  }
+
+  test("sumaFoldLeft"){
+    assert(Lista.sumaFoldLeft(Lista(1,1,1,1,1)) == 5)
+  }
+
+
 }
