@@ -1,10 +1,10 @@
 object GenericBinarySearch {
   //Array[A] se asume ordenado ascendente, devuelve -1 si no encontrado
   def calc[A](colection: Array[A], toSearch: A, l: (A,A) => Boolean): Int = {
-    println(colection)
+
     @annotation.tailrec
     def recur(Index0: Int, Index1: Int): Int = {
-      println("Index0: "+Index0+"\nIndex1: "+Index1)
+
       if (Index0 > Index1){
         -1
       }else{

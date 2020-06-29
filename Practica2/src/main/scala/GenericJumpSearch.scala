@@ -6,7 +6,8 @@ object GenericJumpSearch {
 
     @annotation.tailrec
     def recur(index: Int): Int ={
-      if(l(toSearch, collection(index))){
+
+      if(l(toSearch, collection(index)) || index == collection.size-1){
         var found = -1
         for(i <- index-blockSize to index){
           if(collection(i).equals(toSearch)){
@@ -16,7 +17,7 @@ object GenericJumpSearch {
 
         found
       }else{
-        recur(if (index+blockSize > collection.size) collection.size else index+blockSize)
+        recur(if ((index+blockSize) >= collection.size) collection.size-1 else index+blockSize)
       }
     }
 
