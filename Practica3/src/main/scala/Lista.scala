@@ -172,6 +172,44 @@ object Lista{
     foldLeft(lista, 0)((x, y) => x+y)
   }
 
+  /**
+   * Metodo de filtrado para quedarnos con los elementos
+   * que cumplen una determinada condicion
+   * @param lista
+   * @param criterio
+   */
+  def filtrar(lista:Lista[Int])(criterio : (Int) => Boolean): Lista[Int] = lista match {
+    case Nil => Nil
+    case Cons(head, tail) => if (criterio(head)) Cons(head, filtrar(tail)(criterio)) else filtrar(tail)(criterio)
+  }
+
+  /**
+   * Metodo para mostrar el contenido de la lista
+   * @param lista
+   * @return
+   */
+  def mostrar(lista : Lista[Int]) : Unit = lista match {
+    case Nil => println("Nil")
+    case Cons(head, tail) => {
+      print(head + ", ")
+      mostrar (tail)
+    }
+  }
+
+  /**
+   * Funcion de utilidad para facilitar la programacion de los
+   * casos de prueba: el resultado de las funciones propias debe
+   * producir el mismo resultado que si se usara un objeto de la
+   * clase List directamente
+   * @param lista
+   * @tparam A
+   * @return
+   */
+  def toList[A](lista : Lista[A]) : List[A] = lista match {
+    case Nil => List()
+    case Cons(head, tail) => head::toList(tail)
+  }
+
 
 
 }

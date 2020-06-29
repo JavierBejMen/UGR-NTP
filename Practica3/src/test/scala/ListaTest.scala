@@ -58,5 +58,16 @@ class ListaTest extends FunSuite {
     assert(Lista.sumaFoldLeft(Lista(1,1,1,1,1)) == 5)
   }
 
+  test("filtrar"){
+    assert(Lista.filtrar(Lista(1,5,2,5,3,5,1,5))((x) => x == 5) == Lista(5,5,5,5))
+  }
+
+  test("mostrar"){
+    Lista.mostrar(Lista(1,2,3,4,5))
+  }
+
+  test("toList"){
+    assert(Lista.toList(Lista(1,2,3,4,5)) == List(1,2,3,4,5))
+  }
 
 }
