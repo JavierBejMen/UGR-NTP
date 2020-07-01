@@ -34,7 +34,7 @@ object Lista{
   */
   def apply[A](elementos : A*) : Lista[A] = elementos.size match {
     case 0 => Nil
-    case _ => Cons(elementos.head, apply(elementos.tail: _*)).asInstanceOf[Lista[A]]
+    case _ => Cons(elementos.head, apply(elementos.tail: _*))
   }
 
   /**
